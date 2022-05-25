@@ -2,6 +2,7 @@ import axios from "axios";
 
 const api = axios.create({
     baseURL: "https://bombbombtpo-api.herokuapp.com/",
+    withCredentials: true
 });
 
 export const setUser = (obj) => {
@@ -33,7 +34,7 @@ export const setOptions = (obj) => {
 };
 
 export const logOut = () => async () => {
-    await api.post("/api/logout", { withCredentials: true });
+    await api.post("/api/logout");
 
     return { type: "USER_INFO", payload: {} };
 };
