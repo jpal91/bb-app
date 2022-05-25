@@ -9,6 +9,8 @@ import { useLocation } from "react-router-dom";
 
 const api = axios.create({
     baseURL: "https://bombbombtpo-api.herokuapp.com/",
+    // baseURL: 'http://localhost:3001',
+    withCredentials: true
 });
 
 const Auth = (props) => {
@@ -26,7 +28,7 @@ const Auth = (props) => {
 
     const refreshToken = async () => {
         await api
-            .get("/api/refresh-auth", { withCredentials: true })
+            .get("/api/refresh-auth")
             .then((result) => props.setUser(result.data));
 
         setLoading(false);
@@ -36,9 +38,7 @@ const Auth = (props) => {
 
     useEffect(() => {
         const auth = async () => {
-            const response = await api.get("/api/check-auth", {
-                withCredentials: true,
-            });
+            const response = await api.get("/api/check-auth");
 
             if (response.data === "Dunno man") {
                 setLoading(false);

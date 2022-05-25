@@ -15,6 +15,8 @@ import { setUser, setEmail } from "../actions";
 
 const api = axios.create({
     baseURL: "https://bombbombtpo-api.herokuapp.com/",
+    // baseURL: 'http://localhost:3001',
+    withCredentials: true
 });
 
 const Login = (props) => {
