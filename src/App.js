@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Login from './components/Login'
+
 import Auth from './components/Auth'
 import { Outlet } from 'react-router-dom';
 

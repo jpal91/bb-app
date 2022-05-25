@@ -1,29 +1,39 @@
-import axios from "axios"
+import axios from "axios";
+
+const api = axios.create({
+    baseURL: "https://bombbombtpo-api.herokuapp.com/",
+});
 
 export const setUser = (obj) => {
-    return { type: 'USER_INFO', payload: obj }
-}
+    return { type: "USER_INFO", payload: obj };
+};
 
 export const setEmail = (str) => {
-    return { type: 'USER_EMAIL', payload: str }
-}
+    return { type: "USER_EMAIL", payload: str };
+};
 
 export const appUserInfo = (id) => async (dispatch) => {
-    const response = await axios.post('http://localhost:3001/api/app/user', {
-        id: id
-    })
+    const response = await api.post("/api/app/user", {
+        id: id,
+    });
 
-    return dispatch({ type: 'APP_UI', payload: response.data })
-}
+    return dispatch({ type: "APP_UI", payload: response.data });
+};
 
 export const getVideos = (id) => async (dispatch) => {
-    const response = await axios.post('http://localhost:3001/api/app/videos', {
-        id: id
-    })
+    const response = await api.post("/api/app/videos", {
+        id: id,
+    });
 
-    return dispatch({ type: 'GET_VIDEOS', payload: response.data.videos })
-} 
+    return dispatch({ type: "GET_VIDEOS", payload: response.data.videos });
+};
 
 export const setOptions = (obj) => {
-    return { type: 'OPTIONS', payload: obj }
-}
+    return { type: "OPTIONS", payload: obj };
+};
+
+export const logOut = () => async () => {
+    await api.get("/api/logout", { withCredentials: true });
+
+    return { type: "USER_INFO", payload: {} };
+};
