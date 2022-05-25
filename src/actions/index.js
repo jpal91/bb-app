@@ -33,7 +33,7 @@ export const setOptions = (obj) => {
 };
 
 export const logOut = () => async () => {
-    await api.get("/api/logout", { withCredentials: true });
+    await api.post("/api/logout", { withCredentials: true });
 
     return { type: "USER_INFO", payload: {} };
 };
