@@ -68,7 +68,7 @@ const Auth = (props) => {
         } else {
             setLoading(false);
         }
-    }, [props, location.pathname, navigate, refreshToken]);
+    }, [location.pathname]);
 
     useEffect(() => {
         if (!props.user.id) {
@@ -82,7 +82,7 @@ const Auth = (props) => {
             setLoading(true);
             refreshToken(props.user.id);
         }
-    }, [location.pathname, props.user.expires, props.user.id, refreshToken]);
+    }, [location.pathname]);
 
     useEffect(() => {
         renderLoading();

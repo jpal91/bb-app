@@ -234,7 +234,7 @@ const BBApp = (props) => {
                     setLoading(false);
                 });
         }
-    }, [props.user, loading, props]);
+    }, [loading]);
 
     useEffect(() => {
         render();
