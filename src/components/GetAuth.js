@@ -19,7 +19,7 @@ const GetAuth = () => {
     const navigate = useNavigate();
     const [username, setUserName] = useState("");
     const [password, setPassword] = useState("");
-    const [searchParams, setSearchParams] = useSearchParams();
+    const [searchParams] = useSearchParams();
 
     const auth = async () => {
         let code = searchParams.get("code");
@@ -46,7 +46,7 @@ const GetAuth = () => {
         if (!code) {
             return getCode();
         }
-    }, []);
+    }, [searchParams]);
 
     return (
         <Container fluid sx={{ display: "flex", justifyContent: "center" }}>

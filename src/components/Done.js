@@ -47,7 +47,7 @@ const Done = (props) => {
         return () => {
             clearTimeout(wait)
         }
-    }, [])
+    }, [navigate, props.options, props.user.id])
 
     useEffect(() => {
         if (loading) {
@@ -61,7 +61,7 @@ const Done = (props) => {
         return () => {
             clearTimeout(wait)
         }
-    }, [loading])
+    }, [loading, navigate])
 
     return (
         <React.Fragment>

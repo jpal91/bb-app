@@ -10,10 +10,12 @@ let obj = {
     vidRef: {},
 }
 
-export default (state = obj, action) => {
+const options = (state = obj, action) => {
     if (action.type === 'OPTIONS') {
         return action.payload
     } else {
         return state
     }
 }
+
+export default options

@@ -12,7 +12,6 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
-import axios from "axios";
 import React, { useState, useEffect } from "react";
 
 import { appUserInfo, getVideos, setOptions, logOut } from "../actions";
@@ -218,7 +217,7 @@ const BBApp = (props) => {
         if (props.options.vidRef.id) {
             setHidden(true);
         }
-    }, []);
+    }, [props.options.vidRef.id]);
 
     useEffect(() => {
         if (!props.user.id) {
@@ -235,7 +234,7 @@ const BBApp = (props) => {
                     setLoading(false);
                 });
         }
-    }, [props.user]);
+    }, [props.user, loading, props]);
 
     useEffect(() => {
         render();

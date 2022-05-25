@@ -95,13 +95,13 @@ const Confirm = (props) => {
         }
         setEmailObj(props.options.emailsObj);
         render();
-    }, [props.options]);
+    }, [props.options, render]);
 
     useEffect(() => {
         if (!props.options.id) {
             navigate("/app");
         }
-    }, []);
+    }, [props.options.id, navigate]);
 
     return (
         <React.Fragment>

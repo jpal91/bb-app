@@ -68,7 +68,7 @@ const Auth = (props) => {
         } else {
             setLoading(false);
         }
-    });
+    }, [props, location.pathname, navigate, refreshToken]);
 
     useEffect(() => {
         if (!props.user.id) {
@@ -82,11 +82,11 @@ const Auth = (props) => {
             setLoading(true);
             refreshToken(props.user.id);
         }
-    }, [location.pathname]);
+    }, [location.pathname, props.user.expires, props.user.id, refreshToken]);
 
     useEffect(() => {
         renderLoading();
-    }, [loading]);
+    }, [loading, renderLoading]);
 
     return <React.Fragment>{renderLoading()}</React.Fragment>;
 };
