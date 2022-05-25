@@ -8,7 +8,7 @@ import { setUser } from "../actions";
 import { useLocation } from "react-router-dom";
 
 const api = axios.create({
-    baseURL: "https://bombbombtpo-api.herokuapp.com/",
+    baseURL: "/be",
     // baseURL: 'http://localhost:3001',
     withCredentials: true
 });
@@ -86,7 +86,7 @@ const Auth = (props) => {
 
     useEffect(() => {
         renderLoading();
-    }, [loading, renderLoading]);
+    }, [loading]);
 
     return <React.Fragment>{renderLoading()}</React.Fragment>;
 };
