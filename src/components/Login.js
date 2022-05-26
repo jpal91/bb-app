@@ -11,12 +11,14 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 
+import MDBox from "components/MDBox";
+
 import { setUser, setEmail } from "../actions";
 
 const api = axios.create({
     // baseURL: "/be",
-    baseURL: 'http://localhost:3001',
-    withCredentials: true
+    baseURL: "http://localhost:3001",
+    withCredentials: true,
 });
 
 const Login = (props) => {
@@ -40,14 +42,12 @@ const Login = (props) => {
 
     return (
         <Container fluid sx={{ display: "flex", justifyContent: "center" }}>
-            <Card
-                variant="outlined"
-                sx={{
-                    width: 400,
-                    minHeight: 400,
-                    display: "flex",
-                    justifyContent: "center",
-                }}
+            <MDBox
+                variant="gradient"
+                bgColor="secondary"
+                borderRadius="lg"
+                coloredShadow="error"
+                sx={{ minWidth: 400, minHeight: 350, display: 'flex', justifyContent: 'center', mt: 20}}
             >
                 <CardContent
                     sx={{
@@ -73,14 +73,8 @@ const Login = (props) => {
                     <Button variant="contained" onClick={() => login()}>
                         Submit
                     </Button>
-                    <Button
-                        variant="contained"
-                        onClick={() => navigate("/getAuth")}
-                    >
-                        Sign Up
-                    </Button>
                 </CardContent>
-            </Card>
+            </MDBox>
         </Container>
     );
 };

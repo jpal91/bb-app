@@ -7,10 +7,10 @@ import GetAuth from "./components/GetAuth";
 import Login from "./components/Login";
 import Confirm from "./components/Confirm";
 import Done from "./components/Done";
-import { Outlet } from "react-router-dom";
+import Logout from "components/Logout";
+
 
 import themeDark from "assets/theme-dark";
-import brandDark from "assets/images/logo-ct-dark.png";
 import MDBox from "components/MDBox";
 import Configurator from "examples/Configurator";
 import routes from "routes";
@@ -87,31 +87,31 @@ function App() {
             <ThemeProvider theme={themeDark}>
                 <CssBaseline />
                 <BrowserRouter>
-                  <Auth>
-                      {layout === "dashboard" && (
-                          <>
-                              <Sidenav
-                                  color={sidenavColor}
-                                  brand={brandDark}
-                                  brandName="RocketBomb"
-                                  routes={routes}
-                                  onMouseEnter={handleOnMouseEnter}
-                                  onMouseLeave={handleOnMouseLeave}
-                              />
-                              <Configurator />
-                              {configsButton}
-                          </>
-                      )}
-                        <Routes>
-                            <Route path="/app" element={<BBApp />}>
-                                <Route path="/login" element={<Login />} />
-                                <Route path="/getAuth" element={<GetAuth />} />
+                    {layout === "dashboard" && (
+                        <>
+                            <Sidenav
+                                color={sidenavColor}
+                                brand={'rocket_launch'}
+                                brandName="RocketBomb"
+                                routes={routes}
+                                onMouseEnter={handleOnMouseEnter}
+                                onMouseLeave={handleOnMouseLeave}
+                            />
+                            <Configurator />
+                            {configsButton}
+                        </>
+                    )}
 
-                                <Route path="/confirm" element={<Confirm />} />
-                                <Route path="/done" element={<Done />} />
-                            </Route>
-                        </Routes>
-                  </Auth>
+                    <Routes>
+                        <Route path="/" element={<Auth />}>
+                            <Route path="/login" element={<Login />} />
+                            <Route path="/getAuth" element={<GetAuth />} />
+                            <Route path="/app" element={<BBApp />} />
+                            <Route path="/confirm" element={<Confirm />} />
+                            <Route path="/done" element={<Done />} />
+                            <Route path='/logout' element={<Logout />} />
+                        </Route>
+                    </Routes>
                 </BrowserRouter>
             </ThemeProvider>
         </div>

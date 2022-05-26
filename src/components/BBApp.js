@@ -127,7 +127,7 @@ const BBApp = (props) => {
                         onChange={(event) => setMessage(event.target.value)}
                     ></TextField>
                     <Grid item sx={{ display: "flex" }}>
-                        <Typography variant="h6">Emails</Typography>
+                        <Typography variant="h6" sx={{mt: 0.9}}>Emails</Typography>
                         <SimplePopper />
                     </Grid>
                     <TextField
@@ -262,7 +262,7 @@ const BBApp = (props) => {
 
     return (
         <DashboardLayout>
-            <DashboardNavbar />
+            <DashboardNavbar ui={props.ui}/>
             {render()}
         </DashboardLayout>)
 };

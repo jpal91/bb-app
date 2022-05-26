@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import {
     TextField,
-    Card,
     CardContent,
     Typography,
     Container,
@@ -10,6 +9,8 @@ import {
 } from "@mui/material";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+
+import MDBox from 'components/MDBox'
 
 const api = axios.create({
     // baseURL: "https://bombbombtpo-api.herokuapp.com/",
@@ -43,7 +44,7 @@ const GetAuth = () => {
 
     useEffect(() => {
         let code = searchParams.get("code");
-        console.log(code);
+
         if (!code) {
             return getCode();
         }
@@ -51,14 +52,12 @@ const GetAuth = () => {
 
     return (
         <Container fluid sx={{ display: "flex", justifyContent: "center" }}>
-            <Card
-                variant="outlined"
-                sx={{
-                    width: 400,
-                    minHeight: 400,
-                    display: "flex",
-                    justifyContent: "center",
-                }}
+            <MDBox
+                variant="gradient"
+                bgColor="secondary"
+                borderRadius="lg"
+                coloredShadow="error"
+                sx={{ minWidth: 400, minHeight: 350, display: 'flex', justifyContent: 'center', mt: 20}}
             >
                 <CardContent
                     sx={{
@@ -69,10 +68,8 @@ const GetAuth = () => {
                         m: 2,
                     }}
                 >
-                    <Typography variant="h3">Sign Up</Typography>
-                    <Typography variant="text2" sx={{ color: "error.main" }}>
-                        Does not have to be the same as BombBomb
-                    </Typography>
+                    <Typography variant="h3">Sign In</Typography>
+                    <Typography variant='body2' color='error' sx={{fontWeight: 'bold'}}>Does not have to be the same as BombBomb</Typography>
                     <TextField
                         label="Username/Email"
                         value={username}
@@ -88,7 +85,7 @@ const GetAuth = () => {
                         Submit
                     </Button>
                 </CardContent>
-            </Card>
+            </MDBox>
         </Container>
     );
 };

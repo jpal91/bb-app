@@ -19,9 +19,9 @@ const SimplePopper = () => {
             <Button
                 aria-describedby={id}
                 onClick={handleClick}
-                sx={{ minWidth: 0 }}
+                sx={{ minWidth: 0, m:0, p:0.5 }}
             >
-                <QuestionMarkIcon sx={{ fontSize: 20, minWidth: 0 }} />
+                <QuestionMarkIcon sx={{ fontSize: 20, minWidth: 0, m: 0, p: -1}} />
             </Button>
             <Popper id={id} open={open} anchorEl={anchorEl}>
                 <Box sx={{ border: 1, p: 1, bgcolor: "background.paper" }}>
