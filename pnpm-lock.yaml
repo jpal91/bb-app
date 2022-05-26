@@ -9,6 +9,7 @@ specifiers:
   '@testing-library/react': ^13.2.0
   '@testing-library/user-event': ^13.5.0
   axios: ^0.27.2
+  chroma-js: ^2.4.2
   dotenv: ^16.0.1
   react: ^18.1.0
   react-dom: ^18.1.0
@@ -28,6 +29,7 @@ dependencies:
   '@testing-library/react': 13.2.0_ef5jwxihqo6n7gxfmzogljlgcm
   '@testing-library/user-event': 13.5.0
   axios: 0.27.2
+  chroma-js: 2.4.2
   dotenv: 16.0.1
   react: 18.1.0
   react-dom: 18.1.0_react@18.1.0
@@ -3749,6 +3751,10 @@ packages:
       readdirp: 3.6.0
     optionalDependencies:
       fsevents: 2.3.2
+    dev: false
+
+  /chroma-js/2.4.2:
+    resolution: {integrity: sha512-U9eDw6+wt7V8z5NncY2jJfZa+hUH8XEj8FQHgFJTrUFnJfXYf4Ml4adI2vXZOjqRDpFWtYVWypDfZwnJ+HIR4A==}
     dev: false
 
   /chrome-trace-event/1.0.3:

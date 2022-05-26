@@ -14,6 +14,11 @@ import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import React, { useState, useEffect } from "react";
 
+import MDBox from "components/MDBox";
+import MDTypography from "components/MDTypography";
+import DashboardNavbar from "examples/Navbars/DashboardNavbar";
+import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
+
 import { appUserInfo, getVideos, setOptions, logOut } from "../actions";
 import SimplePopper from "./SimplePopper";
 
@@ -155,12 +160,26 @@ const BBApp = (props) => {
             return (
                 <Grid item key={vid.id} sx={{ m: 4 }} hidden={hidden}>
                     <Card>
-                        <CardHeader title={vid.name} />
+                        <MDBox
+                            mx={2}
+                            mt={-3}
+                            py={3}
+                            px={2}
+                            variant="gradient"
+                            bgColor="info"
+                            borderRadius="lg"
+                            coloredShadow="info"
+                        >
+                            <MDTypography variant="h6" color="white">
+                                {vid.name}
+                            </MDTypography>
+                        </MDBox>
                         <CardMedia
                             component="img"
-                            height="300"
+                            height="200"
                             width="200"
                             src={vid.thumbUrl}
+                            sx={{opacity: '0.9'}}
                         />
                         <CardContent
                             sx={{ display: "flex", justifyContent: "center" }}
@@ -189,10 +208,11 @@ const BBApp = (props) => {
                         container
                         item
                         sx={{
-                            display: "flex",
+                            display: "none",
                             justifyContent: "flex-end",
                             mr: 10,
                         }}
+                        
                     >
                         <Typography variant="h4" sx={{ mr: 2 }}>
                             Hi, {props.ui.firstName || null}
@@ -240,7 +260,11 @@ const BBApp = (props) => {
         render();
     }, [loading]);
 
-    return <div>{render()}</div>;
+    return (
+        <DashboardLayout>
+            <DashboardNavbar />
+            {render()}
+        </DashboardLayout>)
 };
 
 const mapStateToProps = (state) => {
