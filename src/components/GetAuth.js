@@ -12,7 +12,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const api = axios.create({
-    baseURL: "https://bombbombtpo-api.herokuapp.com/",
+    // baseURL: "https://bombbombtpo-api.herokuapp.com/",
+    baseURL: 'http://localhost:3001'
 });
 
 const GetAuth = () => {

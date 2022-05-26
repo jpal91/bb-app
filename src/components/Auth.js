@@ -8,8 +8,8 @@ import { setUser } from "../actions";
 import { useLocation } from "react-router-dom";
 
 const api = axios.create({
-    baseURL: "/be",
-    // baseURL: 'http://localhost:3001',
+    // baseURL: "/be",
+    baseURL: 'http://localhost:3001',
     withCredentials: true
 });
 
