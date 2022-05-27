@@ -36,8 +36,8 @@ export const setOptions = (obj) => {
     return { type: "OPTIONS", payload: obj };
 };
 
-export const logOut = () => async () => {
+export const logOut = () => async (dispatch) => {
     await api.post("/api/logout");
 
-    return { type: "USER_INFO", payload: {} };
+    return dispatch({ type: "USER_INFO", payload: {} })
 };
