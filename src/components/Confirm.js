@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { setOptions } from "../actions";
+import MDBox from 'components/MDBox'
+
 
 const Confirm = (props) => {
     const navigate = useNavigate();
@@ -41,8 +43,14 @@ const Confirm = (props) => {
 
         return (
             <Grid container sx={{ display: "flex", flexWrap: "nowrap", m: 2 }}>
-                <Grid container item fluid sx={{ display: "flex" }}>
-                    <Grid item>
+                <Grid container item fluid sx={{ display: "flex", justifyContent: 'center' }}>
+                    <MDBox
+                        variant='gradient'
+                        bgColor='secondary'
+                        borderRadius='lg'
+
+                        sx={{minWidth: 400, minHeight: 350, display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', p:2}}
+                    >
                         <Typography variant="h6">
                             {props.options.name}
                         </Typography>
@@ -68,12 +76,18 @@ const Confirm = (props) => {
                         >
                             Submit
                         </Button>
-                    </Grid>
+                    </MDBox>
                 </Grid>
                 <Grid container item fluid sx={{ flexDirection: "column" }}>
                     {Object.values(emailObj).map((e, i) => {
                         return (
-                            <Grid item>
+                            <MDBox
+                            variant='gradient'
+                            bgColor='info'
+                            borderRadius='lg'
+
+                            sx={{width: 400, minHeight: 350, display: 'flex', flexDirection: 'column', p:2}}
+                        >
                                 <TextField
                                     disabled={disabled}
                                     value={e}
@@ -81,7 +95,7 @@ const Confirm = (props) => {
                                     onChange={(event) => changeEmails(event)}
                                     name={e}
                                 />
-                            </Grid>
+                            </MDBox>
                         );
                     })}
                 </Grid>

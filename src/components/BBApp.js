@@ -16,8 +16,6 @@ import React, { useState, useEffect } from "react";
 
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
-import DashboardNavbar from "examples/Navbars/DashboardNavbar";
-import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 
 import { appUserInfo, getVideos, setOptions, logOut } from "../actions";
 import SimplePopper from "./SimplePopper";
@@ -261,10 +259,10 @@ const BBApp = (props) => {
     }, [loading]);
 
     return (
-        <DashboardLayout>
-            <DashboardNavbar ui={props.ui}/>
+        <React.Fragment>
             {render()}
-        </DashboardLayout>)
+        </React.Fragment>
+    )
 };
 
 const mapStateToProps = (state) => {
@@ -282,3 +280,10 @@ export default connect(mapStateToProps, {
     setOptions,
     logOut,
 })(BBApp);
+
+/*
+        <DashboardLayout>
+            <DashboardNavbar ui={props.ui}/>
+            {render()}
+        </DashboardLayout>)
+*/

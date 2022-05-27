@@ -12,6 +12,8 @@ import Logout from "components/Logout";
 
 import themeDark from "assets/theme-dark";
 import MDBox from "components/MDBox";
+import DashboardNavbar from "examples/Navbars/DashboardNavbar";
+import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import Configurator from "examples/Configurator";
 import routes from "routes";
 import Sidenav from "examples/Sidenav";
@@ -21,8 +23,9 @@ import {
     setOpenConfigurator,
 } from "context";
 import { CssBaseline, ThemeProvider, Icon } from "@mui/material";
+import { connect } from "react-redux";
 
-function App() {
+function App(props) {
     const [controller, dispatch] = useMaterialUIController();
     const [onMouseEnter, setOnMouseEnter] = useState(false);
     const {
@@ -101,7 +104,8 @@ function App() {
                             {configsButton}
                         </>
                     )}
-
+                  <DashboardLayout>
+                    <DashboardNavbar ui={props.ui}/>
                     <Routes>
                         <Route path="/" element={<Auth />}>
                             <Route path="/login" element={<Login />} />
@@ -112,10 +116,17 @@ function App() {
                             <Route path='/logout' element={<Logout />} />
                         </Route>
                     </Routes>
+                  </DashboardLayout>
                 </BrowserRouter>
             </ThemeProvider>
         </div>
     );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    ui: state.ui
+  }
+}
+
+export default connect(mapStateToProps)(App);
