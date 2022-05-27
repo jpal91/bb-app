@@ -51,7 +51,7 @@ const BBApp = (props) => {
         let emailObj = {};
 
         emails.split(",").forEach((e, i) => {
-            emailObj[i] = e;
+            emailObj[i] = e.trim();
         });
 
         let obj = {
@@ -157,7 +157,7 @@ const BBApp = (props) => {
         return props.videos.map((vid) => {
             return (
                 <Grid item key={vid.id} sx={{ m: 4 }} hidden={hidden}>
-                    <Card>
+                    <Card sx={{minWidth: 400}}>
                         <MDBox
                             mx={2}
                             mt={-3}
