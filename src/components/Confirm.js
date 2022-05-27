@@ -54,7 +54,7 @@ const Confirm = (props) => {
                         borderRadius="lg"
                         sx={{
                             minWidth: 400,
-                            minHeight: 350,
+                            height: 350,
                             display: "flex",
                             flexDirection: "column",
                             justifyContent: "space-evenly",

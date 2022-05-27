@@ -49,9 +49,10 @@ const BBApp = (props) => {
 
     const submitOptions = async () => {
         let emailObj = {};
+        let regex = /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/g
 
-        emails.split(",").forEach((e, i) => {
-            emailObj[i] = e.trim();
+        emails.match(regex).forEach((e, i) => {
+            emailObj[i] = e;
         });
 
         let obj = {
@@ -146,7 +147,7 @@ const BBApp = (props) => {
                         </Typography>
                     </Grid>
                     <Button variant="contained" onClick={() => submitOptions()}>
-                        Confirm
+                        Confirmation Screen
                     </Button>
                 </Grid>
             </Container>
