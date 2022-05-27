@@ -29,7 +29,7 @@ const Done = (props) => {
     useEffect(() => {
         const send = async () => {
 
-            await axios.post('http://localhost:3001/api/app/send-vid', {
+            await axios.post('/be/api/app/send-vid', {
                 ...props.options,
                 userId: props.user.id
             })

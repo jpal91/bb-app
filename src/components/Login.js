@@ -16,8 +16,8 @@ import MDBox from "components/MDBox";
 import { setUser, setEmail } from "../actions";
 
 const api = axios.create({
-    // baseURL: "/be",
-    baseURL: "http://localhost:3001",
+    baseURL: "/be",
+    // baseURL: "http://localhost:3001",
     withCredentials: true,
 });
 

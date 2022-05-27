@@ -13,8 +13,9 @@ import { useNavigate } from "react-router-dom";
 import MDBox from 'components/MDBox'
 
 const api = axios.create({
-    // baseURL: "https://bombbombtpo-api.herokuapp.com/",
-    baseURL: 'http://localhost:3001'
+    baseURL: "/be",
+    // baseURL: 'http://localhost:3001',
+    withCredentials: true
 });
 
 const GetAuth = () => {
