@@ -1,10 +1,12 @@
 import axios from "axios";
 
-const api = axios.create({
-    baseURL: "/be",
-    // baseURL: "http://localhost:3001",
-    withCredentials: true
-});
+import api from '../api'
+
+// const api = axios.create({
+//     baseURL: "/be",
+//     // baseURL: "http://localhost:3001",
+//     withCredentials: true
+// });
 
 export const setUser = (obj) => {
     return { type: "USER_INFO", payload: obj };

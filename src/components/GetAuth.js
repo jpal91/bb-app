@@ -12,11 +12,13 @@ import { useNavigate } from "react-router-dom";
 
 import MDBox from 'components/MDBox'
 
-const api = axios.create({
-    baseURL: "/be",
-    // baseURL: 'http://localhost:3001',
-    withCredentials: true
-});
+import api from '../api'
+
+// const api = axios.create({
+//     baseURL: "/be",
+//     // baseURL: 'http://localhost:3001',
+//     withCredentials: true
+// });
 
 const GetAuth = () => {
     const navigate = useNavigate();

@@ -7,11 +7,13 @@ import { connect } from "react-redux";
 import { setUser } from "../actions";
 import { useLocation } from "react-router-dom";
 
-const api = axios.create({
-    baseURL: "/be",
-    // baseURL: 'http://localhost:3001',
-    withCredentials: true
-});
+import api from '../api'
+
+// const api = axios.create({
+//     baseURL: "/be",
+//     // baseURL: 'http://localhost:3001',
+//     withCredentials: true
+// });
 
 const Auth = (props) => {
     const [loading, setLoading] = useState(true);

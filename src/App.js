@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter, useLocation } from "react-router-dom";
 
 import Auth from "./components/Auth";
 import BBApp from "./components/BBApp";
@@ -38,6 +38,7 @@ function App(props) {
         whiteSidenav,
         darkMode,
     } = controller;
+
 
     const handleOnMouseEnter = () => {
         if (miniSidenav && !onMouseEnter) {
@@ -99,6 +100,7 @@ function App(props) {
                                 routes={routes}
                                 onMouseEnter={handleOnMouseEnter}
                                 onMouseLeave={handleOnMouseLeave}
+
                             />
                             <Configurator />
                             {configsButton}
@@ -108,7 +110,7 @@ function App(props) {
                     <DashboardNavbar ui={props.ui}/>
                     <Routes>
                         <Route path="/" element={<Auth />}>
-                            <Route path="/login" element={<Login />} />
+                            <Route path='/login' element={<Login />} />
                             <Route path="/getAuth" element={<GetAuth />} />
                             <Route path="/app" element={<BBApp />} />
                             <Route path="/confirm" element={<Confirm />} />

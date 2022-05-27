@@ -58,6 +58,7 @@ function DashboardNavbar({ absolute, light, isMini, ui }) {
   const { miniSidenav, transparentNavbar, fixedNavbar, openConfigurator, darkMode } = controller;
   const [openMenu, setOpenMenu] = useState(false);
   const route = useLocation().pathname.split("/").slice(1);
+  const location = useLocation()
 
   useEffect(() => {
     // Setting the navbar type
@@ -121,6 +122,12 @@ function DashboardNavbar({ absolute, light, isMini, ui }) {
       return colorValue;
     },
   });
+
+  if (location.pathname === '/login' || location.pathname === '/getAuth') {
+    return (
+      <div></div>
+    )
+  }
 
   return (
     <AppBar
